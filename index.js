@@ -1,5 +1,11 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const seenNumbers = new Set(); 
+  for (const number of array) {
+    const complement = target - number;
+    if (seenNumbers.has(complement)) return true;
+    seenNumbers.add(number);
+  }
+  return false;
 }
 
 /* 
@@ -7,7 +13,11 @@ function hasTargetSum(array, target) {
 */
 
 /* 
-  Add your pseudocode here
+  for (start at beginning of array and loop through){
+    if our number is smaller than target 
+      subtract from target and look to see if in array
+      if it is, return true
+  }
 */
 
 /*
